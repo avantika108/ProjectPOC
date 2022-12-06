@@ -1,0 +1,2365 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Api Documentation",
+    "version": "1.0",
+    "title": "Api Documentation",
+    "termsOfService": "urn:tos",
+    "contact": {},
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "host": "172.23.25.61:8084",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "lead-controller",
+      "description": "Lead Controller"
+    },
+    {
+      "name": "application-controller",
+      "description": "Application Controller"
+    },
+    {
+      "name": "health-controller",
+      "description": "Health Controller"
+    }
+  ],
+  "paths": {
+    "/app-tracker/v1/details": {
+      "post": {
+        "tags": [
+          "application-controller"
+        ],
+        "summary": "fetchLead",
+        "operationId": "fetchLeadUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "appTrackerReq",
+            "description": "appTrackerReq",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ApplicationTrackerRequest"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "app-status",
+            "in": "query",
+            "description": "app-status",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SUITABILITY",
+              "SIS",
+              "PAYMENT",
+              "APPLICATION",
+              "PREUWC",
+              "UWC",
+              "ISSUED",
+              "OTHERS"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponseWrapperModel«ApplicationDetailsResponse»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/healthService/v1/echo": {
+      "get": {
+        "tags": [
+          "health-controller"
+        ],
+        "summary": "echo",
+        "operationId": "echoUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/AadharRequestOTP/{uid}/{policyNo}": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "aadharRequestOTP",
+        "operationId": "aadharRequestOTPUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "uid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "policyNo",
+            "in": "path",
+            "description": "policyNo",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/AadharVerifyOTP": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "aadharVerifyOTP",
+        "operationId": "aadharVerifyOTPUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "aadharOtpReqModel",
+            "description": "aadharOtpReqModel",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AadharOtpReqModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/checkExistingPolicy": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "existingPolicy",
+        "operationId": "existingPolicyUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "lpExistingPolicyReq",
+            "description": "lpExistingPolicyReq",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LpExistingPolicyReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/checkOTPForLead/{leadId}": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "checkOTPGenerationServletForAppSubmission",
+        "operationId": "checkOTPGenerationServletForAppSubmissionUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "reqbody",
+            "description": "reqbody",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/JsonNode"
+            }
+          },
+          {
+            "name": "leadId",
+            "in": "path",
+            "description": "leadId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "headers",
+            "in": "header",
+            "description": "headers",
+            "required": true,
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/createLead": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "createLead",
+        "operationId": "createLeadUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "createLead",
+            "description": "createLead",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EditLeadRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/deDupService": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "deDupAppService",
+        "operationId": "deDupAppServiceUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "deDupAppDataReq",
+            "description": "deDupAppDataReq",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeDupAppDataReqModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/editLead": {
+      "put": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "editLead",
+        "operationId": "editLeadUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EditLeadRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/fetch-app-details/{appId}": {
+      "get": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "fetchLeadAppTrackerByAppId",
+        "operationId": "fetchLeadAppTrackerByAppIdUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "path",
+            "description": "appId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponseWrapperModel«ApplicationTrackerResponse»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/fetch-lead-apps/{leadId}": {
+      "get": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "fetchLeadAppTrackerByLeadId",
+        "operationId": "fetchLeadAppTrackerByLeadIdUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "leadId",
+            "in": "path",
+            "description": "leadId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appId",
+            "in": "query",
+            "description": "appId",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponseWrapperModel«LeadAppTrackerResponse»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/fetchCkyc": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "downloadCkycDetails",
+        "operationId": "downloadCkycDetailsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestBody",
+            "description": "requestBody",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CKYCDownloadReqModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/fetchDocumentType": {
+      "get": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "fetchDocumentTypeDetails",
+        "operationId": "fetchDocumentTypeDetailsUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "description": "category",
+            "required": false,
+            "type": "string",
+            "default": "IN,PR"
+          },
+          {
+            "name": "docType",
+            "in": "query",
+            "description": "docType",
+            "required": false,
+            "type": "string",
+            "default": "identity,age,residential"
+          },
+          {
+            "name": "requiredAll",
+            "in": "query",
+            "description": "requiredAll",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/fetchLead/{leadId}": {
+      "get": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "fetchByleadId",
+        "operationId": "fetchByleadIdUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "leadId",
+            "in": "path",
+            "description": "leadId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/fetchLeadsNew": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "fetchLeadNew",
+        "operationId": "fetchLeadNewUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "leadServlet",
+            "description": "leadServlet",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LeadGenerationReqModel"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "search",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/fetchPincodeByCity/{city}": {
+      "get": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "fetchPincodeByCity",
+        "operationId": "fetchPincodeByCityUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "city",
+            "in": "path",
+            "description": "city",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/fetchPincodeByState/{state}": {
+      "get": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "fetchPincodeByState",
+        "operationId": "fetchPincodeByStateUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "state",
+            "in": "path",
+            "description": "state",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/fetchProductAndLeadInfo/{applicationId}/{leadId}": {
+      "get": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "fetchByleadId",
+        "operationId": "fetchByleadIdUsingGET_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "leadId",
+            "in": "path",
+            "description": "leadId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "applicationId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/fetchStateByPincode/{pincode}": {
+      "get": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "fetchStateByPincode",
+        "operationId": "fetchStateByPincodeUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "pincode",
+            "in": "path",
+            "description": "pincode",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/generateLink": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "generateLink",
+        "operationId": "generateLinkUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestBody",
+            "description": "requestBody",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GenerateLinkRequestModel"
+            }
+          },
+          {
+            "name": "path",
+            "in": "header",
+            "description": "path",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/generateOTPForLead": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "generateOTPForAppSubmission",
+        "operationId": "generateOTPForAppSubmissionUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GenerateOTPForLeadReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/getAgentInfo": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "getAgentInfo",
+        "operationId": "getAgentInfoUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "agentInfoServiceReq",
+            "description": "agentInfoServiceReq",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AgentInfoReqModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/getInsuredKyc/{appId}": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "getInsuredKyc",
+        "operationId": "getInsuredKycUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "path",
+            "description": "appId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponseWrapperModel«List«InsuredKycResponseModel»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/getStateAndCountry": {
+      "get": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "fetchStateAndCountryList",
+        "operationId": "fetchStateAndCountryListUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "nriFlag",
+            "in": "query",
+            "description": "nriFlag",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "headers",
+            "in": "header",
+            "description": "headers",
+            "required": true,
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/ocrSubmission": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "ocrDetailsSubmisson",
+        "operationId": "ocrDetailsSubmissonUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestBody",
+            "description": "requestBody",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OCRrequestModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/searchCkyc": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "searchCkycDetails",
+        "operationId": "searchCkycDetailsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestBody",
+            "description": "requestBody",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CKYCSearchOuterModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/searchLead": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "searchLead",
+        "operationId": "searchLeadUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "searchLeadReq",
+            "description": "searchLeadReq",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/syncLeads": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "syncLeads",
+        "operationId": "syncLeadsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "leadServlet",
+            "description": "leadServlet",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LeadGenerationReqModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/updateInsuredKyc": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "updateInsuredKyc",
+        "operationId": "updateInsuredKycUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "insuredKycReqModel",
+            "description": "insuredKycReqModel",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InsuredKycRequestModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/verifyAndGetLeadInfo/{tokenId}": {
+      "get": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "verifyAndGetLeadInfo",
+        "operationId": "verifyAndGetLeadInfoUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "tokenId",
+            "in": "path",
+            "description": "tokenId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/lead/v1/verifyLeadByOTP": {
+      "post": {
+        "tags": [
+          "lead-controller"
+        ],
+        "summary": "verifyLeadByOTP",
+        "operationId": "verifyLeadByOTPUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/JsonNode"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CKycInnerReqModel": {
+      "type": "object",
+      "properties": {
+        "CKYCNO": {
+          "type": "string"
+        },
+        "DOB": {
+          "type": "string"
+        }
+      }
+    },
+    "LpExistingPolicyReq": {
+      "type": "object",
+      "properties": {
+        "APPID": {
+          "type": "string"
+        },
+        "PLN": {
+          "type": "string"
+        }
+      }
+    },
+    "RequestModel": {
+      "type": "object"
+    },
+    "EditLeadRequest": {
+      "type": "object",
+      "properties": {
+        "CKYCNumber": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "addressline1": {
+          "type": "string"
+        },
+        "addressline2": {
+          "type": "string"
+        },
+        "addressline3": {
+          "type": "string"
+        },
+        "agentCode": {
+          "type": "string"
+        },
+        "agentservicingstate": {
+          "type": "string"
+        },
+        "alternate": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "city": {
+          "type": "string"
+        },
+        "ckycDoc": {
+          "type": "string"
+        },
+        "ckycDocNo": {
+          "type": "string"
+        },
+        "ckycReason": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "countryCallCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "countryOfResidence": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "disposition": {
+          "type": "string"
+        },
+        "dob": {
+          "type": "string"
+        },
+        "ekycConsentLang": {
+          "type": "boolean"
+        },
+        "email": {
+          "type": "string"
+        },
+        "fatherName": {
+          "type": "string"
+        },
+        "fname": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "isAddressStatus": {
+          "type": "string"
+        },
+        "iscontactStatus": {
+          "type": "string"
+        },
+        "kyc_status": {
+          "type": "boolean"
+        },
+        "kyc_type": {
+          "type": "string"
+        },
+        "landline": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "landmark": {
+          "type": "string"
+        },
+        "leadConsent": {
+          "type": "string"
+        },
+        "leadId": {
+          "type": "string"
+        },
+        "lname": {
+          "type": "string"
+        },
+        "maritalStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "mname": {
+          "type": "string"
+        },
+        "motherName": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "pincode": {
+          "type": "string"
+        },
+        "prefcontact": {
+          "type": "string"
+        },
+        "preferredLang": {
+          "type": "string"
+        },
+        "productField": {
+          "type": "string"
+        },
+        "remarks": {
+          "type": "string"
+        },
+        "residentStatus": {
+          "type": "string"
+        },
+        "sourcepolicy": {
+          "type": "string"
+        },
+        "sourcingagentcode": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "subdisposition": {
+          "type": "string"
+        },
+        "timeHH": {
+          "type": "string"
+        },
+        "timeMM": {
+          "type": "string"
+        }
+      }
+    },
+    "ApplicationProductDetails": {
+      "type": "object",
+      "properties": {
+        "annual_premium": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "other_interest": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "plan_name": {
+          "type": "string"
+        },
+        "sum_assured": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "EmailRequestModel": {
+      "type": "object",
+      "properties": {
+        "BDY": {
+          "type": "object"
+        },
+        "CAT": {
+          "type": "string"
+        },
+        "CID": {
+          "type": "string"
+        },
+        "TMS": {
+          "type": "string",
+          "example": "dd-MM-yyyy HH:mm:ss"
+        },
+        "TO": {
+          "type": "string"
+        }
+      }
+    },
+    "ServiceResponseWrapperModel«List«InsuredKycResponseModel»»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InsuredKycResponseModel"
+          }
+        },
+        "errors": {
+          "$ref": "#/definitions/APIErrorModel"
+        }
+      }
+    },
+    "JsonNode": {
+      "type": "object"
+    },
+    "LeadApplicationResponse": {
+      "type": "object",
+      "properties": {
+        "application_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "application_stage": {
+          "type": "string"
+        },
+        "life_insured_name": {
+          "type": "string"
+        },
+        "product_name": {
+          "type": "string"
+        },
+        "product_pgl_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "product_uinno": {
+          "type": "string"
+        }
+      }
+    },
+    "InsuredKycResponseModel": {
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ckycNumber": {
+          "type": "string"
+        },
+        "ckycType": {
+          "type": "string"
+        },
+        "insuredId": {
+          "type": "string"
+        },
+        "insuredPriority": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "kycDocNo": {
+          "type": "string"
+        },
+        "kycDocType": {
+          "type": "string"
+        },
+        "kycStatus": {
+          "type": "boolean"
+        },
+        "policyId": {
+          "type": "string"
+        }
+      }
+    },
+    "APIErrorModel": {
+      "type": "object",
+      "properties": {
+        "errorCode": {
+          "type": "string"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "fieldErrors": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "timestamp": {
+          "type": "string",
+          "example": "dd-MM-yyyy hh:mm:ss"
+        }
+      }
+    },
+    "GenerateLinkRequestModel": {
+      "type": "object",
+      "properties": {
+        "AC": {
+          "type": "string"
+        },
+        "ACN": {
+          "type": "string"
+        },
+        "APPLICATION_ID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "BUSINESS_TYPE_ID": {
+          "type": "string"
+        },
+        "EMAIL": {
+          "$ref": "#/definitions/EmailRequestModel"
+        },
+        "EVENT_NAME": {
+          "type": "string"
+        },
+        "ISAUTH": {
+          "type": "string"
+        },
+        "LEAD_ID": {
+          "type": "string"
+        },
+        "RESUME_PAGE": {
+          "type": "string"
+        },
+        "SMS": {
+          "$ref": "#/definitions/SmsRequestModel"
+        },
+        "TEMPLATE_ID": {
+          "type": "string"
+        },
+        "TO_ADDRESS": {
+          "type": "string"
+        },
+        "VALUES": {
+          "type": "object"
+        }
+      }
+    },
+    "ServiceResponseWrapperModel«ApplicationTrackerResponse»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ApplicationTrackerResponse"
+        },
+        "errors": {
+          "$ref": "#/definitions/APIErrorModel"
+        }
+      }
+    },
+    "SmsRequestModel": {
+      "type": "object",
+      "properties": {
+        "BDY": {
+          "type": "object"
+        },
+        "CAT": {
+          "type": "string"
+        },
+        "CID": {
+          "type": "string"
+        },
+        "TMS": {
+          "type": "string",
+          "example": "dd-MM-yyyy HH:mm:ss"
+        },
+        "TO": {
+          "type": "object"
+        }
+      }
+    },
+    "ApplicationTrackerRequest": {
+      "type": "object",
+      "properties": {
+        "agent_code": {
+          "type": "string"
+        },
+        "from_date": {
+          "type": "string"
+        },
+        "to_date": {
+          "type": "string"
+        }
+      }
+    },
+    "AgentInfoReqModel": {
+      "type": "object",
+      "properties": {
+        "AC": {
+          "type": "string"
+        },
+        "ACN": {
+          "type": "string"
+        },
+        "BTI": {
+          "type": "string"
+        },
+        "DVID": {
+          "type": "string"
+        },
+        "PLAN_CD": {
+          "type": "string"
+        },
+        "PT": {
+          "type": "string"
+        },
+        "PWD": {
+          "type": "string"
+        }
+      }
+    },
+    "ApplicationTrackerResponse": {
+      "type": "object",
+      "properties": {
+        "app_milestone_link": {
+          "$ref": "#/definitions/ApplicationMilestoneLink"
+        },
+        "application_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "countryCallCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "customer_email": {
+          "type": "string"
+        },
+        "customer_mobile": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "customer_name": {
+          "type": "string"
+        },
+        "last_updated_on": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lead_id": {
+          "type": "string"
+        },
+        "milestone_substage": {
+          "type": "string"
+        },
+        "policy_number": {
+          "type": "string"
+        },
+        "policy_status": {
+          "type": "string"
+        },
+        "product_interest": {
+          "$ref": "#/definitions/ApplicationProductDetails"
+        },
+        "ui_substage": {
+          "type": "string"
+        }
+      }
+    },
+    "LeadAppTrackerResponse": {
+      "type": "object",
+      "properties": {
+        "application_details": {
+          "$ref": "#/definitions/ApplicationTrackerResponse"
+        },
+        "list_application": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LeadApplicationResponse"
+          }
+        }
+      }
+    },
+    "ApplicationMilestoneLink": {
+      "type": "object",
+      "properties": {
+        "app_form_allow": {
+          "type": "boolean"
+        },
+        "app_form_pdf": {
+          "type": "string"
+        },
+        "generate_link": {
+          "type": "string"
+        },
+        "generate_link_allow": {
+          "type": "boolean"
+        },
+        "payment_allow": {
+          "type": "boolean"
+        },
+        "payment_done": {
+          "type": "boolean"
+        },
+        "payment_link": {
+          "type": "string"
+        },
+        "psc_allow": {
+          "type": "boolean"
+        },
+        "psc_link": {
+          "type": "string"
+        },
+        "shortage_pay_exist": {
+          "type": "boolean"
+        },
+        "shortage_pay_link": {
+          "type": "string"
+        },
+        "sis_allow": {
+          "type": "boolean"
+        },
+        "sis_pdf_link": {
+          "type": "string"
+        },
+        "suitability_allow": {
+          "type": "boolean"
+        },
+        "suitability_pdf_link": {
+          "type": "string"
+        },
+        "suitability_risk_allow": {
+          "type": "boolean"
+        },
+        "suitability_risk_pdf": {
+          "type": "string"
+        },
+        "upload_pending": {
+          "type": "boolean"
+        },
+        "upload_pending_link": {
+          "type": "string"
+        }
+      }
+    },
+    "CKYCSearchOuterModel": {
+      "type": "object",
+      "properties": {
+        "APP": {
+          "type": "string"
+        },
+        "CKYCSEARCH": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CKYCSearchModel"
+          }
+        }
+      }
+    },
+    "GenerateOTPForLeadReq": {
+      "type": "object",
+      "properties": {
+        "leadId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "policyId": {
+          "type": "string"
+        }
+      }
+    },
+    "ServiceResponseWrapperModel«ApplicationDetailsResponse»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ApplicationDetailsResponse"
+        },
+        "errors": {
+          "$ref": "#/definitions/APIErrorModel"
+        }
+      }
+    },
+    "InsuredKycRequestModel": {
+      "type": "object",
+      "properties": {
+        "insuredKycResquestList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InsuredKycResponseModel"
+          }
+        }
+      }
+    },
+    "ServiceResponseWrapperModel«LeadAppTrackerResponse»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/LeadAppTrackerResponse"
+        },
+        "errors": {
+          "$ref": "#/definitions/APIErrorModel"
+        }
+      }
+    },
+    "LeadGenerationReqModel": {
+      "type": "object",
+      "properties": {
+        "AC": {
+          "type": "string"
+        },
+        "ACN": {
+          "type": "string"
+        },
+        "DVID": {
+          "type": "string"
+        },
+        "FROM_DATE": {
+          "type": "string"
+        },
+        "PWD": {
+          "type": "string"
+        },
+        "TO_DATE": {
+          "type": "string"
+        }
+      }
+    },
+    "CKYCSearchModel": {
+      "type": "object",
+      "properties": {
+        "DOB": {
+          "type": "string"
+        },
+        "FNM": {
+          "type": "string"
+        },
+        "GND": {
+          "type": "string"
+        },
+        "INIDNO": {
+          "type": "string"
+        },
+        "INIDTYP": {
+          "type": "string"
+        },
+        "LNM": {
+          "type": "string"
+        },
+        "MNM": {
+          "type": "string"
+        }
+      }
+    },
+    "DeDupAppDataReqModel": {
+      "type": "object",
+      "properties": {
+        "ADHAR": {
+          "type": "string"
+        },
+        "CURPLAN": {
+          "type": "string"
+        },
+        "DOB": {
+          "type": "string"
+        },
+        "EMLID": {
+          "type": "string"
+        },
+        "METHOD": {
+          "type": "string"
+        },
+        "MOBNO": {
+          "type": "string"
+        },
+        "NAME": {
+          "type": "string"
+        },
+        "OPT": {
+          "type": "string"
+        },
+        "ORGID": {
+          "type": "string"
+        },
+        "PAN": {
+          "type": "string"
+        },
+        "POLNUM": {
+          "type": "string"
+        },
+        "RELID": {
+          "type": "string"
+        },
+        "SEX": {
+          "type": "string"
+        },
+        "SYSTEM": {
+          "type": "string"
+        }
+      }
+    },
+    "CKYCDownloadReqModel": {
+      "type": "object",
+      "properties": {
+        "APP": {
+          "type": "string"
+        },
+        "CKYCDWN": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CKycInnerReqModel"
+          }
+        }
+      }
+    },
+    "OCRrequestObject": {
+      "type": "object",
+      "properties": {
+        "Category": {
+          "type": "string"
+        },
+        "File_Type": {
+          "type": "string"
+        },
+        "ImageBase64": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "UserName": {
+          "type": "string"
+        },
+        "document_Id": {
+          "type": "string"
+        },
+        "transaction_Id": {
+          "type": "string"
+        }
+      }
+    },
+    "AadharOtpReqModel": {
+      "type": "object",
+      "properties": {
+        "OTP": {
+          "type": "string"
+        },
+        "POLICY_NO": {
+          "type": "string"
+        },
+        "TXN": {
+          "type": "string"
+        },
+        "UID": {
+          "type": "string"
+        }
+      }
+    },
+    "ApplicationDetailsResponse": {
+      "type": "object",
+      "properties": {
+        "app_inprogress_count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "app_submit_count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "app_tracker_details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ApplicationTrackerResponse"
+          }
+        },
+        "case_issued_value": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "case_submitted_value": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "issued_count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "lead_count": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "other_closed_count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "other_decline_count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "other_inactive_count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "payment_count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pre_uwc_count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sis_count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "suitability_count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "uwc_count": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "OCRrequestModel": {
+      "type": "object",
+      "properties": {
+        "ACN": {
+          "type": "string"
+        },
+        "APPID": {
+          "type": "string"
+        },
+        "PLN": {
+          "type": "string"
+        },
+        "Requestobject": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OCRrequestObject"
+          }
+        }
+      }
+    }
+  }
+}
