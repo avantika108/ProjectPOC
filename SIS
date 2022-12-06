@@ -1,0 +1,3618 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Api Documentation",
+    "version": "1.0",
+    "title": "Api Documentation",
+    "termsOfService": "urn:tos",
+    "contact": {},
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "host": "172.23.25.47:8085",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "landing-page-controller",
+      "description": "Landing Page Controller"
+    },
+    {
+      "name": "sis-servlet-controller",
+      "description": "Sis Servlet Controller"
+    },
+    {
+      "name": "health-controller",
+      "description": "Health Controller"
+    },
+    {
+      "name": "policy-generation-controller",
+      "description": "Policy Generation Controller"
+    },
+    {
+      "name": "term-eligibility-controller",
+      "description": "Term Eligibility Controller"
+    },
+    {
+      "name": "sis-rules-controller",
+      "description": "SIS Rules Controller"
+    }
+  ],
+  "paths": {
+    "/SIS/healthService/v1/echo": {
+      "get": {
+        "tags": [
+          "health-controller"
+        ],
+        "summary": "echo",
+        "operationId": "echoUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/calculateRiskAppetite": {
+      "post": {
+        "tags": [
+          "policy-generation-controller"
+        ],
+        "summary": "calculateRiskAppetite",
+        "operationId": "calculateRiskAppetiteUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SaveRiskQuestionnaireRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/checkBoundaryCondition": {
+      "get": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "checkBoundaryCondition",
+        "operationId": "checkBoundaryConditionUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BoundaryConditionRequestModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "checkBoundaryConditionPost",
+        "operationId": "checkBoundaryConditionPostUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BoundaryConditionRequestModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/checkBoundaryConditions": {
+      "post": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "nonTermBoundryCondn",
+        "operationId": "nonTermBoundryCondnUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BoundaryCondtnReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/deleteSavedComprehensiveRiderDetails/{id}": {
+      "get": {
+        "tags": [
+          "policy-generation-controller"
+        ],
+        "summary": "deleteSavedComprehensiveRiderDetails",
+        "operationId": "deleteSavedComprehensiveRiderDetailsUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/fetchBasePremiumMultiple": {
+      "post": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "getBasePremMult",
+        "operationId": "getBasePremMultUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FetchBasePremiumMultipleReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/fetchPlanCode": {
+      "post": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "getPlanCode",
+        "operationId": "getPlanCodeUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PlanCodeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/fetchPptptValues/{pglId}": {
+      "get": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "getsisPlansDetailsBasedonPglId",
+        "operationId": "getsisPlansDetailsBasedonPglIdUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pglId",
+            "in": "path",
+            "description": "pglId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "payType",
+            "in": "query",
+            "description": "payType",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "enrtyAge",
+            "in": "query",
+            "description": "enrtyAge",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "optionType",
+            "in": "query",
+            "description": "optionType",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "isJL",
+            "in": "query",
+            "description": "isJL",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "flowName",
+            "in": "query",
+            "description": "flowName",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "saOption",
+            "in": "query",
+            "description": "saOption",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "channelEnabled",
+            "in": "query",
+            "description": "channelEnabled",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/fetchProductPlans": {
+      "post": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "fetchFinancialAnalyticsData",
+        "operationId": "fetchFinancialAnalyticsDataUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "requestModel",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SisLandingPageRequest"
+              }
+            }
+          },
+          {
+            "name": "headers",
+            "in": "header",
+            "description": "headers",
+            "required": true,
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponseWrapperModel«SisAnalyticsResponse»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/fetchSRSTTIRatio": {
+      "post": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "getSRSTTIRatio",
+        "operationId": "getSRSTTIRatioUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SRSTTIRiderGridRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/fetchSumAssuredPakageValues/{pglId}": {
+      "get": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "fetchSumAssuredPakageValues",
+        "operationId": "fetchSumAssuredPakageValuesUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pglId",
+            "in": "path",
+            "description": "pglId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/fetchUIConfiguration/{pglId}": {
+      "get": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "getSISDataDictionary",
+        "operationId": "getSISDataDictionaryUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pglId",
+            "in": "path",
+            "description": "pglId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/getFundDetails/{riskAppetite}": {
+      "get": {
+        "tags": [
+          "policy-generation-controller"
+        ],
+        "summary": "getFundDetailsFromRisk",
+        "operationId": "getFundDetailsFromRiskUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "riskAppetite",
+            "in": "path",
+            "description": "riskAppetite",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/getProductConstructValues/{pglId}": {
+      "get": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "getProductConstructValues",
+        "operationId": "getProductConstructValuesUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pglId",
+            "in": "path",
+            "description": "pglId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/getProductPlanAndRiderDetails/{pnlId}": {
+      "get": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "getProductPlanAndPlanDetails",
+        "operationId": "getProductPlanAndPlanDetailsUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pnlId",
+            "in": "path",
+            "description": "pnlId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rdlCode",
+            "in": "query",
+            "description": "rdlCode",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "packageOption",
+            "in": "query",
+            "description": "packageOption",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/getRiderCodeforComprehensive": {
+      "post": {
+        "tags": [
+          "policy-generation-controller"
+        ],
+        "summary": "getRiderCodeForComprehensivePage",
+        "operationId": "getRiderCodeForComprehensivePageUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetComprehensiveRiderCodeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/getRiderCodeforComprehensiveUlip": {
+      "post": {
+        "tags": [
+          "policy-generation-controller"
+        ],
+        "summary": "getRiderCodeForComprehensiveUlipPage",
+        "operationId": "getRiderCodeForComprehensiveUlipPageUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetComprehensiveRiderCodeUlipRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/getRiderDetailsFromProductID/{productId}/{singlePay}": {
+      "get": {
+        "tags": [
+          "policy-generation-controller"
+        ],
+        "summary": "getRiderbenefitDetailsFromProductId",
+        "operationId": "getRiderbenefitDetailsFromProductIdUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "productId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "singlePay",
+            "in": "path",
+            "description": "singlePay",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "planOption",
+            "in": "query",
+            "description": "planOption",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "packageOption",
+            "in": "query",
+            "description": "packageOption",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "age",
+            "in": "query",
+            "description": "age",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/getRiskAppetite/{applicationId}": {
+      "get": {
+        "tags": [
+          "policy-generation-controller"
+        ],
+        "summary": "getCalculatedRiskAppetite",
+        "operationId": "getCalculatedRiskAppetiteUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "applicationId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/getRiskConsent": {
+      "get": {
+        "tags": [
+          "policy-generation-controller"
+        ],
+        "summary": "getMasterConsent",
+        "operationId": "getMasterConsentUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/getRiskQuestionnaire": {
+      "get": {
+        "tags": [
+          "policy-generation-controller"
+        ],
+        "summary": "getRiskQuestionnaire",
+        "operationId": "getRiskQuestionnaireUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/getSavedComprehensiveRiderDetails/{id}": {
+      "get": {
+        "tags": [
+          "policy-generation-controller"
+        ],
+        "summary": "getSavedComprehensiveRiderDetails",
+        "operationId": "getSavedComprehensiveRiderDetailsUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/getSuitabilityRiskPdf/{applicationId}": {
+      "post": {
+        "tags": [
+          "policy-generation-controller"
+        ],
+        "summary": "getRiskAppetitePdf",
+        "operationId": "getRiskAppetitePdfUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "applicationId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/getsisPlansDetails/{pglId}": {
+      "get": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "getsisPlansDetailsBasedonPglId",
+        "operationId": "getsisPlansDetailsBasedonPglIdUsingGET_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pglId",
+            "in": "path",
+            "description": "pglId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/getsisProposalDetails/{appId}/{pglId}": {
+      "get": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "getsisProposalDetails",
+        "operationId": "getsisProposalDetailsUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "pglId",
+            "in": "path",
+            "description": "pglId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "appId",
+            "in": "path",
+            "description": "appId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/saveAllPdfsBlob/{policyNo}": {
+      "post": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "saveAllPdfsBlob",
+        "operationId": "saveAllPdfsBlobUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "policyNo",
+            "in": "path",
+            "description": "policyNo",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/saveComprehensiveRiderDetails": {
+      "post": {
+        "tags": [
+          "policy-generation-controller"
+        ],
+        "summary": "saveComprehensiveRiderDetails",
+        "operationId": "saveComprehensiveRiderDetailsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ComprehensiveRiderSelectionReq"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/saveFundAllocationDetails": {
+      "post": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "saveFundAllocationDetails",
+        "operationId": "saveFundAllocationDetailsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "req",
+            "description": "req",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FundAllocationDetailsPojo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/savecomprehensive-rider-submission-details": {
+      "post": {
+        "tags": [
+          "policy-generation-controller"
+        ],
+        "summary": "riderSubmissionDetails",
+        "operationId": "riderSubmissionDetailsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ComprehensiveRiderSubmissionDetailsReq"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/submitPlanDetailsForBuy": {
+      "post": {
+        "tags": [
+          "policy-generation-controller"
+        ],
+        "summary": "submitPlanDetailsForBuy",
+        "operationId": "submitPlanDetailsForBuyUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "requestModel",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PolicyForBuyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/v1/verifyPanDetails": {
+      "post": {
+        "tags": [
+          "landing-page-controller"
+        ],
+        "summary": "verifyPanDetails",
+        "operationId": "verifyPanDetailsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "requestModel",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PanVerificationModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/{version}/checkTermEligibility": {
+      "post": {
+        "tags": [
+          "term-eligibility-controller"
+        ],
+        "summary": "checkTermEligibility",
+        "operationId": "checkTermEligibilityUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TermEligibilityRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SIS/{version}/getMaxSumAssuredAndOtherValidations": {
+      "post": {
+        "tags": [
+          "term-eligibility-controller"
+        ],
+        "summary": "getMaxSumAssuredAndOtherValidations",
+        "operationId": "getMaxSumAssuredAndOtherValidationsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TermEligibilityRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/SISServlet/v1/sisServlet/{policyId}": {
+      "get": {
+        "tags": [
+          "sis-servlet-controller"
+        ],
+        "summary": "fetchByleadId",
+        "operationId": "fetchByleadIdUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "policyId",
+            "in": "path",
+            "description": "policyId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/{version}/SIS/rules/calculate": {
+      "post": {
+        "tags": [
+          "sis-rules-controller"
+        ],
+        "summary": "calculateRules",
+        "operationId": "calculateRulesUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/{version}/SIS/rules/configure": {
+      "post": {
+        "tags": [
+          "sis-rules-controller"
+        ],
+        "summary": "configureRules",
+        "operationId": "configureRulesUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseDTO"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ComprehensiveRiderSelectionReq": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "benefitCategory": {
+          "type": "string"
+        },
+        "benefitOptionName": {
+          "type": "string"
+        },
+        "frequency": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "isRop": {
+          "type": "boolean"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "riderDisabled": {
+          "type": "boolean"
+        },
+        "sumAssuredAmount": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "SisLandingPageRequest": {
+      "type": "object",
+      "properties": {
+        "aadhar_pan_seed_status": {
+          "type": "string"
+        },
+        "address_line1": {
+          "type": "string"
+        },
+        "address_line2": {
+          "type": "string"
+        },
+        "address_line3": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ageProof": {
+          "type": "string"
+        },
+        "agent_code": {
+          "type": "string"
+        },
+        "application_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "buy_for": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "contact_no": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "countryCallCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "countryOfResidence": {
+          "type": "string"
+        },
+        "dob": {
+          "type": "string"
+        },
+        "education": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "employeesOfPromoterGrp": {
+          "type": "boolean"
+        },
+        "existing_customer": {
+          "type": "string"
+        },
+        "existing_terms_cover": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "firstNamePan": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "flow_name": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string",
+          "enum": [
+            "M",
+            "F"
+          ]
+        },
+        "gst_exemption_flag": {
+          "type": "boolean"
+        },
+        "gst_number": {
+          "type": "string"
+        },
+        "gst_number_status": {
+          "type": "boolean"
+        },
+        "income": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "insured_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "is_insured_data": {
+          "type": "boolean"
+        },
+        "landmark": {
+          "type": "string"
+        },
+        "lastNamePan": {
+          "type": "string"
+        },
+        "lastUpdatedPan": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "lead_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "lifeType": {
+          "type": "string"
+        },
+        "maritalStatus": {
+          "type": "string"
+        },
+        "middleNamePan": {
+          "type": "string"
+        },
+        "middle_name": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "name_match_flag_api": {
+          "type": "string"
+        },
+        "nationality": {
+          "type": "string"
+        },
+        "nationality_origin": {
+          "type": "string"
+        },
+        "nominee_name": {
+          "type": "string"
+        },
+        "nominee_relations": {
+          "type": "string"
+        },
+        "occupation": {
+          "type": "string"
+        },
+        "pan_auth_flag_api": {
+          "type": "string"
+        },
+        "pan_exist": {
+          "type": "boolean"
+        },
+        "pan_number": {
+          "type": "string"
+        },
+        "pan_user_confirm": {
+          "type": "boolean"
+        },
+        "payment_currency": {
+          "type": "string"
+        },
+        "payment_type": {
+          "type": "string"
+        },
+        "pgl_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "pincode": {
+          "type": "string"
+        },
+        "product_type": {
+          "type": "string"
+        },
+        "smoker_flag": {
+          "type": "string",
+          "enum": [
+            "Y",
+            "N"
+          ]
+        },
+        "state": {
+          "type": "string"
+        },
+        "tata_flag": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        }
+      }
+    },
+    "FetchBasePremiumMultipleReq": {
+      "type": "object",
+      "properties": {
+        "class": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "insured_age": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "insured_smoker": {
+          "type": "string"
+        },
+        "payment_mode": {
+          "type": "string"
+        },
+        "pgl_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ppt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "selected_premium": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "selected_sa": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "starting_point": {
+          "type": "string"
+        }
+      }
+    },
+    "SRSTTIRiderGridRequest": {
+      "type": "object",
+      "properties": {
+        "age": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "appID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "lifeCover": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "pglId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "planCode": {
+          "type": "string"
+        },
+        "ppt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pt": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "GetComprehensiveRiderCodeUlipRequest": {
+      "type": "object",
+      "properties": {
+        "li": {
+          "type": "boolean"
+        },
+        "nrop": {
+          "type": "boolean"
+        },
+        "pc": {
+          "type": "boolean"
+        },
+        "rdlCategory": {
+          "type": "string"
+        },
+        "rdlTitle": {
+          "type": "string"
+        },
+        "rop": {
+          "type": "boolean"
+        },
+        "singlePay": {
+          "type": "boolean"
+        },
+        "wop": {
+          "type": "boolean"
+        }
+      }
+    },
+    "RiderPolicyDetailsReq": {
+      "type": "object",
+      "properties": {
+        "riderAmount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "riderBaseAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "riderGST": {
+          "type": "string"
+        },
+        "riderGSTAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "rider_member_details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RiderInsuredRequest"
+          }
+        },
+        "rpxrdlid": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      }
+    },
+    "JsonNode": {
+      "type": "object"
+    },
+    "APIErrorModel": {
+      "type": "object",
+      "properties": {
+        "errorCode": {
+          "type": "string"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "fieldErrors": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "timestamp": {
+          "type": "string",
+          "example": "dd-MM-yyyy hh:mm:ss"
+        }
+      }
+    },
+    "GetComprehensiveRiderCodeRequest": {
+      "type": "object",
+      "properties": {
+        "li": {
+          "type": "boolean"
+        },
+        "nrop": {
+          "type": "boolean"
+        },
+        "pc": {
+          "type": "boolean"
+        },
+        "rdlCategory": {
+          "type": "string"
+        },
+        "rdlTitle": {
+          "type": "string"
+        },
+        "rop": {
+          "type": "boolean"
+        },
+        "singlePay": {
+          "type": "boolean"
+        },
+        "ulipFlag": {
+          "type": "string"
+        },
+        "vitalifeFlag": {
+          "type": "boolean"
+        },
+        "wop": {
+          "type": "boolean"
+        }
+      }
+    },
+    "TermEligibilityRequest": {
+      "type": "object",
+      "properties": {
+        "age": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "annual_income": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "country_code": {
+          "type": "string"
+        },
+        "education_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "existing_term_cover": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "group_emp_flag": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "occupation_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "package_name": {
+          "type": "string"
+        },
+        "pgl_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "pincode": {
+          "type": "string"
+        },
+        "product_category": {
+          "type": "string"
+        },
+        "resident_type": {
+          "type": "string"
+        },
+        "sum_assured": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Map«string,ResultPojo»": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/ResultPojo"
+      }
+    },
+    "PanVerificationModel": {
+      "type": "object",
+      "properties": {
+        "appId": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "midName": {
+          "type": "string"
+        },
+        "panFor": {
+          "type": "string"
+        },
+        "panNo": {
+          "type": "string"
+        }
+      }
+    },
+    "SaveRiskQuestionnaireRequest": {
+      "type": "object",
+      "properties": {
+        "application_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "consentId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "leadId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "question1Response": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "question2Response": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "question3Response": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "question4Response": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "question5Response": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "question6Response": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "ResultPojo": {
+      "type": "object",
+      "properties": {
+        "output": {
+          "type": "boolean"
+        },
+        "result": {
+          "type": "object"
+        }
+      }
+    },
+    "Collection«JsonNode»": {
+      "type": "object"
+    },
+    "ComprehensiveRiderSubmissionDetailsReq": {
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "benefitName": {
+          "type": "string"
+        },
+        "benefitPayOutType": {
+          "type": "string"
+        },
+        "isLumpSumAndIncome": {
+          "type": "boolean"
+        },
+        "isLumpSumAndIncomeDiv": {
+          "type": "boolean"
+        },
+        "isPartnerCare": {
+          "type": "boolean"
+        },
+        "isPartnerCareDiv": {
+          "type": "boolean"
+        },
+        "isWOP": {
+          "type": "boolean"
+        },
+        "isWOPDiv": {
+          "type": "boolean"
+        },
+        "lumpSumRiderPremium": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "lumpsumAssured": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "memberArrayLI": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/JsonNode"
+          }
+        },
+        "payfrequency": {
+          "type": "string"
+        },
+        "premiumAmount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "premiumTaxInLI": {
+          "$ref": "#/definitions/JsonNode"
+        },
+        "premiumTaxInPC": {
+          "$ref": "#/definitions/JsonNode"
+        },
+        "premiumTaxInWOP": {
+          "$ref": "#/definitions/JsonNode"
+        },
+        "productID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "riderCategory": {
+          "type": "string"
+        },
+        "riderDetailsInLI": {
+          "$ref": "#/definitions/JsonNode"
+        },
+        "riderDetailsInPC": {
+          "$ref": "#/definitions/JsonNode"
+        },
+        "riderDetailsInWOP": {
+          "$ref": "#/definitions/JsonNode"
+        },
+        "riderDurationInLumpSum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "riderPartnerArrayListInPC": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/JsonNode"
+          }
+        },
+        "riderPayPremiumInLumpSum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "riderPremiumInPC": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "riderPremiumInWOP": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "riderROPInPC": {
+          "type": "boolean"
+        },
+        "riderResponseInLI": {
+          "$ref": "#/definitions/JsonNode"
+        },
+        "riderResponseInPC": {
+          "$ref": "#/definitions/JsonNode"
+        },
+        "riderResponseInWOP": {
+          "$ref": "#/definitions/JsonNode"
+        },
+        "riderSumAssuredInLI": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "riderSumassuredInPC": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "ropInLumpSumAndIncome": {
+          "type": "boolean"
+        }
+      }
+    },
+    "BoundaryCondtnReq": {
+      "type": "object",
+      "properties": {
+        "age": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pgl_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "planOption": {
+          "type": "string"
+        },
+        "prop_age": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "PolicyForBuyRequest": {
+      "type": "object",
+      "properties": {
+        "agentCode": {
+          "type": "string"
+        },
+        "annualAnnuity": {
+          "type": "number",
+          "format": "double"
+        },
+        "annualPremium": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "annualisedPremium": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "annuityFrequency": {
+          "type": "string"
+        },
+        "annuityOption": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "applicationId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "basePremiumWithFirstYearGST": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "basePremiumWithFirstYearGSTAmount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "basePremiumWithSecondYearGST": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "basePremiumWithoutGST": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "bonusType": {
+          "type": "string"
+        },
+        "bonusWalletPercentage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "deffermentPeriod": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "discountBasePrice": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "discountBaseRider": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "discountRiderPrice": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "discountedBasePremiumWithFirstYearGST": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "discountedBasePremiumWithFirstYearGSTAmount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "discountedBasePremiumWithoutGST": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "discountedPremium": {
+          "type": "number",
+          "format": "double"
+        },
+        "discountedRiderPremiumWithFirstYearGST": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "discountedRiderPremiumWithFirstYearGSTAmount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "discountedRiderPremiumWithoutGST": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "discountedServiceTax": {
+          "type": "number",
+          "format": "double"
+        },
+        "gaiMode": {
+          "type": "string"
+        },
+        "incomeRate": {
+          "type": "number",
+          "format": "double"
+        },
+        "incomeStartAge": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "incomeTerm": {
+          "type": "string"
+        },
+        "initialPremium": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "initialPremiumGst": {
+          "type": "number",
+          "format": "double"
+        },
+        "isWellness": {
+          "type": "boolean"
+        },
+        "leadId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "mandateAmountPremultiplier": {
+          "type": "number",
+          "format": "double"
+        },
+        "modalAnnuity": {
+          "type": "number",
+          "format": "double"
+        },
+        "modalPremium": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "paidInCashPercentage": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "paymentFrequency": {
+          "type": "string"
+        },
+        "payoutFrequency": {
+          "type": "string"
+        },
+        "payoutMode": {
+          "type": "string"
+        },
+        "payoutOption": {
+          "type": "string"
+        },
+        "planCode": {
+          "type": "string"
+        },
+        "planOption": {
+          "type": "string"
+        },
+        "policyType": {
+          "type": "string"
+        },
+        "ppt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "premiumAmount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "premiumBaseAmount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "premiumGst": {
+          "type": "string"
+        },
+        "premiumGstAmount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "premiumMultiplier": {
+          "type": "number",
+          "format": "double"
+        },
+        "premiumPaymentOption": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "pt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "renewalPremium": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "renewalPremiumGst": {
+          "type": "number",
+          "format": "double"
+        },
+        "riderPremiumDetails": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RiderPolicyDetailsReq"
+          }
+        },
+        "riderPremiumFirstYearGSTAmount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "riderPremiumWithFirstYearGST": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "riderPremiumWithSecondYearGST": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "riderPremiumWithoutGST": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "serviceTaxFirstYear": {
+          "type": "number",
+          "format": "double"
+        },
+        "serviceTaxSecondYear": {
+          "type": "number",
+          "format": "double"
+        },
+        "specialDate": {
+          "type": "string"
+        },
+        "staffDiscountRate": {
+          "type": "number",
+          "format": "double"
+        },
+        "startingPoint": {
+          "type": "string"
+        },
+        "sumAssured": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "sumAssuredSelection": {
+          "type": "string"
+        },
+        "totalPremiumWithFirstYearGST": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalPremiumWithFirstYearGSTAmount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalPremiumWithSecondYearGST": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalPremiumWithoutGST": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "utilizationOfRewards": {
+          "type": "string"
+        }
+      }
+    },
+    "RiderInsuredRequest": {
+      "type": "object",
+      "properties": {
+        "benefitPayoutOption": {
+          "type": "string"
+        },
+        "dob": {
+          "type": "string",
+          "example": "dd-MM-yyyy"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "genderCd": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "income": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "incomeDuration": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "incomeFrequency": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "lumpsum": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "title": {
+          "type": "string"
+        }
+      }
+    },
+    "BoundaryConditionRequestModel": {
+      "type": "object",
+      "properties": {
+        "age": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "annuityPayout": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "annuityPayoutFrequency": {
+          "type": "string"
+        },
+        "annulizedPremium": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "baseSA": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dbm": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "deathBenefit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "deferredYears": {
+          "type": "string"
+        },
+        "flowName": {
+          "type": "string"
+        },
+        "modalAnnuity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "optionType": {
+          "type": "string"
+        },
+        "packageName": {
+          "type": "string"
+        },
+        "payType": {
+          "type": "string"
+        },
+        "pglId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ppt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "saOption": {
+          "type": "string"
+        },
+        "startingPoint": {
+          "type": "string"
+        },
+        "sumInsured": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "PlanCodeRequest": {
+      "type": "object",
+      "properties": {
+        "age": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "businessTypeId": {
+          "type": "string"
+        },
+        "frequency": {
+          "type": "string"
+        },
+        "isJointLife": {
+          "type": "string"
+        },
+        "pglId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "planOption": {
+          "type": "string"
+        },
+        "ppt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "premiumPaymentMode": {
+          "type": "string"
+        },
+        "pt": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "FundAllocationDetailsPojo": {
+      "type": "object",
+      "properties": {
+        "application_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "base_option": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "consent_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "daf_allctn": {
+          "type": "number",
+          "format": "double"
+        },
+        "eof_allctn": {
+          "type": "number",
+          "format": "double"
+        },
+        "esg_allctn": {
+          "type": "number",
+          "format": "double"
+        },
+        "fund_allocation_type": {
+          "type": "string"
+        },
+        "icf_allctn": {
+          "type": "number",
+          "format": "double"
+        },
+        "lead_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "mcf_allctn": {
+          "type": "number",
+          "format": "double"
+        },
+        "risk_appetite": {
+          "type": "string"
+        },
+        "sef_allctn": {
+          "type": "number",
+          "format": "double"
+        },
+        "smart_debt_fund": {
+          "type": "string"
+        },
+        "smart_equity_fund": {
+          "type": "string"
+        },
+        "smart_option": {
+          "type": "boolean"
+        },
+        "t2f_allctn": {
+          "type": "number",
+          "format": "double"
+        },
+        "t5f_allctn": {
+          "type": "number",
+          "format": "double"
+        },
+        "tal_allctn": {
+          "type": "number",
+          "format": "double"
+        },
+        "tcl_allctn": {
+          "type": "number",
+          "format": "double"
+        },
+        "tel_allctn": {
+          "type": "number",
+          "format": "double"
+        },
+        "tfl_allctn": {
+          "type": "number",
+          "format": "double"
+        },
+        "til_allctn": {
+          "type": "number",
+          "format": "double"
+        },
+        "tsl_allctn": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "ResponseDTO": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/ResultPojo"
+            }
+          }
+        }
+      }
+    },
+    "RequestDTO": {
+      "type": "object",
+      "properties": {
+        "additionalOption": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ageProofFlag": {
+          "type": "string"
+        },
+        "agentCode": {
+          "type": "string"
+        },
+        "agentName": {
+          "type": "string"
+        },
+        "annualisedPremium": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "annuityAdvanceFlag": {
+          "type": "boolean"
+        },
+        "annuityPaymentFrequency": {
+          "type": "string"
+        },
+        "annuityPaymentMode": {
+          "type": "string"
+        },
+        "autoDebitFacility": {
+          "type": "boolean"
+        },
+        "autoPayIndicator": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "autoPremiumDebitDiscount": {
+          "type": "boolean"
+        },
+        "baseOption": {
+          "type": "boolean"
+        },
+        "basePlan": {
+          "type": "string"
+        },
+        "basePremium": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "baseSumAssured": {
+          "type": "number",
+          "format": "double"
+        },
+        "bonus": {
+          "type": "string"
+        },
+        "businessType": {
+          "type": "string"
+        },
+        "cashBonusPayoutFrequency": {
+          "type": "string"
+        },
+        "clazz": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "currentTargetYear": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dateofRequest": {
+          "type": "string"
+        },
+        "deathBenefitOption": {
+          "type": "string"
+        },
+        "deferredYears": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "digitalDiscount": {
+          "type": "string"
+        },
+        "discountApplicable": {
+          "type": "boolean"
+        },
+        "discountBranch": {
+          "type": "string"
+        },
+        "distributionChannel": {
+          "type": "string"
+        },
+        "elc": {
+          "type": "string"
+        },
+        "employeesOfPromoterGrp": {
+          "type": "boolean"
+        },
+        "enteredLifeCover": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "entryAge": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "entryAgeTwo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "es": {
+          "$ref": "#/definitions/ExecutorService"
+        },
+        "executorService": {
+          "$ref": "#/definitions/ExecutorService"
+        },
+        "existingToTataAIA": {
+          "type": "boolean"
+        },
+        "fundAllocationDaf": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundAllocationEof": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundAllocationEsg": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundAllocationIcf": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundAllocationMcf": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundAllocationSef": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundAllocationTal": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundAllocationTcl": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundAllocationTel": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundAllocationTfivef": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundAllocationTfl": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundAllocationTil": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundAllocationTsl": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundAllocationTtwof": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundCode": {
+          "type": "string"
+        },
+        "gaiMode": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "genderTwo": {
+          "type": "string"
+        },
+        "group": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Map«string,object»"
+            }
+          }
+        },
+        "groupEmployeeFlag": {
+          "type": "boolean"
+        },
+        "gstExemptFlag": {
+          "type": "boolean"
+        },
+        "gstState": {
+          "type": "string"
+        },
+        "gstWaiver": {
+          "type": "boolean"
+        },
+        "incomeFrequency": {
+          "type": "string"
+        },
+        "incomeRate": {
+          "type": "number",
+          "format": "double"
+        },
+        "incomeStartAge": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "incomeTerm": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "insuredAge": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "insuredAgeTwo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "insuredName": {
+          "type": "string"
+        },
+        "insuredNameTwo": {
+          "type": "string"
+        },
+        "insuredOccClass": {
+          "type": "string"
+        },
+        "insuredOccLoadType": {
+          "type": "string"
+        },
+        "insuredOccLoadValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "insuredOccupation": {
+          "type": "string"
+        },
+        "insuredSex": {
+          "type": "string"
+        },
+        "insuredSexTwo": {
+          "type": "string"
+        },
+        "insuredSmoker": {
+          "type": "string"
+        },
+        "isGSTRegistered": {
+          "type": "boolean"
+        },
+        "isPdf": {
+          "type": "boolean"
+        },
+        "isThreaded": {
+          "type": "boolean"
+        },
+        "isWellness": {
+          "type": "boolean"
+        },
+        "lifeAssuredName": {
+          "type": "string"
+        },
+        "lifeAssuredNameTwo": {
+          "type": "string"
+        },
+        "lifeOption": {
+          "type": "string"
+        },
+        "lifeType": {
+          "type": "string"
+        },
+        "monthlyIncome": {
+          "type": "number",
+          "format": "double"
+        },
+        "nri": {
+          "type": "boolean"
+        },
+        "nsp": {
+          "type": "string"
+        },
+        "occLoadValue": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "occupation": {
+          "type": "string"
+        },
+        "packageName": {
+          "type": "string"
+        },
+        "payOption": {
+          "type": "string"
+        },
+        "paymentFrequency": {
+          "type": "string"
+        },
+        "paymentMode": {
+          "type": "string"
+        },
+        "plAge": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "plName": {
+          "type": "string"
+        },
+        "plOccClass": {
+          "type": "string"
+        },
+        "plOccLoadType": {
+          "type": "string"
+        },
+        "plOccLoadValue": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "plOccupation": {
+          "type": "string"
+        },
+        "plSex": {
+          "type": "string"
+        },
+        "planOption": {
+          "type": "string"
+        },
+        "pnlId": {
+          "type": "string"
+        },
+        "policyHolderAge": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "policyHolderGender": {
+          "type": "string"
+        },
+        "policyHolderName": {
+          "type": "string"
+        },
+        "policyHolderState": {
+          "type": "string"
+        },
+        "policyTerm": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ppt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pptMonth": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pptYear": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "premiumInput": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "premiumPaymentFrequency": {
+          "type": "string"
+        },
+        "premiumPaymentMode": {
+          "type": "string"
+        },
+        "product": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "propAge": {
+          "type": "string"
+        },
+        "propSex": {
+          "type": "string"
+        },
+        "proposalNumber": {
+          "type": "string"
+        },
+        "proposerAge": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "proposerName": {
+          "type": "string"
+        },
+        "proposerSex": {
+          "type": "string"
+        },
+        "ptMonth": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ptYear": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "riderCompute": {
+          "type": "boolean"
+        },
+        "riderSumInsured": {
+          "type": "number",
+          "format": "double"
+        },
+        "sapFlag": {
+          "type": "boolean"
+        },
+        "selectedAnnuityAnnual": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "selectedAnnuityModal": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "selectedPremium": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "selectedPurchasePrice": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "selectedSA": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "slAge": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "slName": {
+          "type": "string"
+        },
+        "slSex": {
+          "type": "string"
+        },
+        "sljl": {
+          "type": "string"
+        },
+        "smartDebtFund": {
+          "type": "string"
+        },
+        "smartEquityFund": {
+          "type": "string"
+        },
+        "smartOption": {
+          "type": "boolean"
+        },
+        "smokingStatus": {
+          "type": "string"
+        },
+        "splprp": {
+          "type": "string"
+        },
+        "staffFlag": {
+          "type": "string"
+        },
+        "startingPoint": {
+          "type": "string"
+        },
+        "sumAssured": {
+          "type": "number",
+          "format": "double"
+        },
+        "sumAssuredOption": {
+          "type": "string"
+        },
+        "tataAIAGSTRegistered": {
+          "type": "string"
+        },
+        "threaded": {
+          "type": "boolean"
+        },
+        "utilizationOfRewards": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "yearOfSurrender": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "ExecutorService": {
+      "type": "object",
+      "properties": {
+        "shutdown": {
+          "type": "boolean"
+        },
+        "terminated": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ServiceResponseWrapperModel«SisAnalyticsResponse»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/SisAnalyticsResponse"
+        },
+        "errors": {
+          "$ref": "#/definitions/APIErrorModel"
+        }
+      }
+    },
+    "SisAnalyticsResponse": {
+      "type": "object",
+      "properties": {
+        "agent_cd": {
+          "type": "string"
+        },
+        "buy_for": {
+          "type": "string"
+        },
+        "campaign_name": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "coverage": {
+          "type": "string"
+        },
+        "flow_name": {
+          "type": "string"
+        },
+        "max_age": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "max_annual_income": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "max_sa": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "min_age": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "min_annual_income": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "min_sa": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "packageJson": {
+          "$ref": "#/definitions/Collection«JsonNode»"
+        },
+        "pasa_flag": {
+          "type": "string"
+        },
+        "pgl_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "policy_term": {
+          "type": "string"
+        },
+        "ppt": {
+          "type": "string"
+        },
+        "purchasing_insurance_for": {
+          "type": "string"
+        },
+        "resident_status": {
+          "type": "string"
+        },
+        "rider": {
+          "type": "string"
+        },
+        "risk_appetite": {
+          "type": "string"
+        },
+        "segment": {
+          "type": "string"
+        },
+        "smoker_flag": {
+          "type": "string"
+        },
+        "sub_channel": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
