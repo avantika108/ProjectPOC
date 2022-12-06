@@ -1,0 +1,749 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Api Documentation",
+    "version": "1.0",
+    "title": "Api Documentation",
+    "termsOfService": "urn:tos",
+    "contact": {},
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "host": "172.23.25.46:8082",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "health-controller",
+      "description": "Health Controller"
+    },
+    {
+      "name": "suitability-controller",
+      "description": "Suitability Controller"
+    }
+  ],
+  "paths": {
+    "/suitability/healthService/v1/echo": {
+      "get": {
+        "tags": [
+          "health-controller"
+        ],
+        "summary": "echo",
+        "operationId": "echoUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/suitability/v1/cloneSuitability": {
+      "post": {
+        "tags": [
+          "suitability-controller"
+        ],
+        "summary": "cloneSuitability",
+        "operationId": "cloneSuitabilityUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "appId",
+            "description": "appId",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ApplicationIdReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/suitability/v1/consent/declare": {
+      "post": {
+        "tags": [
+          "suitability-controller"
+        ],
+        "summary": "consentDeclare",
+        "operationId": "consentDeclareUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "suitabilityConsentRequest",
+            "description": "suitabilityConsentRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SuitabilityConsentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/suitability/v1/getAllproducts": {
+      "post": {
+        "tags": [
+          "suitability-controller"
+        ],
+        "summary": "getAllproducts",
+        "operationId": "getAllproductsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetAllProductsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/suitability/v1/getApplicationDetails/{leadId}": {
+      "post": {
+        "tags": [
+          "suitability-controller"
+        ],
+        "summary": "getApplicationDatabyLeadId",
+        "operationId": "getApplicationDatabyLeadIdUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetApplicationDetailsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/suitability/v1/getMasterConsent": {
+      "post": {
+        "tags": [
+          "suitability-controller"
+        ],
+        "summary": "getMasterConsent",
+        "operationId": "getMasterConsentUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/suitability/v1/getMasterJourney": {
+      "post": {
+        "tags": [
+          "suitability-controller"
+        ],
+        "summary": "getMasterJourney",
+        "operationId": "getMasterJourneyUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/suitability/v1/getMasterJourney/{journeyMasterID}": {
+      "post": {
+        "tags": [
+          "suitability-controller"
+        ],
+        "summary": "getMasterJourneyByID",
+        "operationId": "getMasterJourneyByIDUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetMasterJourneyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/suitability/v1/getSuitabilityAnalysis": {
+      "post": {
+        "tags": [
+          "suitability-controller"
+        ],
+        "summary": "getSuitabilityAnalysis",
+        "operationId": "getSuitabilityAnalysisUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "appId",
+            "description": "appId",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ApplicationIdReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ServiceResponseWrapperModel«OmniAppTracker»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/suitability/v1/omniSaveSuitability": {
+      "post": {
+        "tags": [
+          "suitability-controller"
+        ],
+        "summary": "redirectUserAndSaveSuitability",
+        "operationId": "redirectUserAndSaveSuitabilityUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "headers",
+            "in": "header",
+            "description": "headers",
+            "required": true,
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/suitability/v1/submitQuestionnaire": {
+      "post": {
+        "tags": [
+          "suitability-controller"
+        ],
+        "summary": "submitQuestionnaire",
+        "operationId": "submitQuestionnaireUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "suitabilityFormRequest",
+            "description": "suitabilityFormRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SuitabilityFormRequestData"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "OmniAppTracker": {
+      "type": "object",
+      "properties": {
+        "agentCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "birthDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "completeDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "concentContent": {
+          "type": "string"
+        },
+        "countryCallCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "currentAddress1": {
+          "type": "string"
+        },
+        "currentAddress2": {
+          "type": "string"
+        },
+        "currentCity": {
+          "type": "string"
+        },
+        "currentLifeStage": {
+          "type": "string"
+        },
+        "currentState": {
+          "type": "string"
+        },
+        "currentZipCode": {
+          "type": "string"
+        },
+        "disposableIncome": {
+          "type": "string"
+        },
+        "emailId": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "insurance": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InsuranceDetails"
+          }
+        },
+        "investmentHorizon": {
+          "type": "string"
+        },
+        "investmentObjective": {
+          "type": "string"
+        },
+        "isInsuranceExist": {
+          "type": "string"
+        },
+        "landmark": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "leadName": {
+          "type": "string"
+        },
+        "lifeStage": {
+          "type": "string"
+        },
+        "middleName": {
+          "type": "string"
+        },
+        "mobileNo": {
+          "type": "string"
+        },
+        "recomProductList": {
+          "type": "string"
+        },
+        "riskAppetite": {
+          "type": "string"
+        }
+      }
+    },
+    "ApplicationIdReq": {
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "ServiceResponseWrapperModel«OmniAppTracker»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OmniAppTracker"
+        },
+        "errors": {
+          "$ref": "#/definitions/APIErrorModel"
+        }
+      }
+    },
+    "SuitabilityConsentRequest": {
+      "type": "object",
+      "properties": {
+        "agentCode": {
+          "type": "string"
+        },
+        "applicationId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "consentId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "leadId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "pglId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productUinno": {
+          "type": "string"
+        }
+      }
+    },
+    "GetApplicationDetailsRequest": {
+      "type": "object",
+      "properties": {
+        "businessTypeId": {
+          "type": "string"
+        },
+        "leadId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "GetMasterJourneyRequest": {
+      "type": "object",
+      "properties": {
+        "journeyMasterId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "InsuranceDetails": {
+      "type": "object",
+      "properties": {
+        "insuranceCompany": {
+          "type": "string"
+        },
+        "insuranceType": {
+          "type": "string"
+        },
+        "preAmnt": {
+          "type": "string"
+        },
+        "sumAssured": {
+          "type": "string"
+        }
+      }
+    },
+    "APIErrorModel": {
+      "type": "object",
+      "properties": {
+        "errorCode": {
+          "type": "string"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "fieldErrors": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "timestamp": {
+          "type": "string",
+          "example": "dd-MM-yyyy hh:mm:ss"
+        }
+      }
+    },
+    "GetAllProductsRequest": {
+      "type": "object",
+      "properties": {
+        "businessTypeId": {
+          "type": "string"
+        }
+      }
+    },
+    "SuitabilityFormRequestData": {
+      "type": "object",
+      "properties": {
+        "agentCd": {
+          "type": "string"
+        },
+        "businessTypeId": {
+          "type": "string"
+        },
+        "currentDisposal": {
+          "type": "string"
+        },
+        "currentLifeStage": {
+          "type": "string"
+        },
+        "insurance": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InsuranceDetails"
+          }
+        },
+        "insurancePort": {
+          "type": "string"
+        },
+        "investHorizon": {
+          "type": "string"
+        },
+        "investObjective": {
+          "type": "string"
+        },
+        "leadId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "riskAppetite": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
